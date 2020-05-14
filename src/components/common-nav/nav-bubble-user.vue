@@ -1,97 +1,99 @@
 <template>
-    <nav-bubble
-        style="width:280px"
-        class="nav-bubble-user"
-        @updateShowBubble="updateShowBubble"
-        :showBubble="showBubble"
-    >
-        <div slot="top" style="border-radius:100%;overflow: hidden;width:68px;height:68px;">
-            <img
-                style="width:68px;height:68px;"
-                src="http://i0.hdslb.com/bfs/face/96dedf9951ec18abf83d64a7664f1f4438c8e512.jpg@70w_70h_1c_100q.webp"
-                alt
-            />
-        </div>
-        <div class="con">
-            <div class="row1 username">{{user.username}}</div>
-            <div class="row2 level f-c">
-                <div class="row1 f-ac">
-                    <div>等级: {{user.level}}</div>
-                    <div
-                        style="margin-left:auto;font-size:12px;color:#999;"
-                    >{{user.currentExperience}} / {{user.upgradeExperience}}</div>
-                </div>
-                <a href="/" class="f-ac">
-                    <div class="progress-bar">
+    <nav-bubble>
+        <div
+            style="width:280px"
+            class="nav-bubble-user"
+            @updateShowBubble="updateShowBubble"
+            :showBubble="showBubble"
+        >
+            <div class="avatar">
+                <img
+                    style="width:68px;height:68px;"
+                    src="http://i0.hdslb.com/bfs/face/96dedf9951ec18abf83d64a7664f1f4438c8e512.jpg@70w_70h_1c_100q.webp"
+                    alt
+                />
+            </div>
+            <div class="con">
+                <div class="row1 username">{{user.username}}</div>
+                <div class="row2 level f-c">
+                    <div class="row1 f-ac">
+                        <div>等级: {{user.level}}</div>
                         <div
-                            class="current-progress"
-                            :style="{width:currentExperiencePercentage+'%'}"
-                        ></div>
+                            style="margin-left:auto;font-size:12px;color:#999;"
+                        >{{user.currentExperience}} / {{user.upgradeExperience}}</div>
                     </div>
-                </a>
-            </div>
-            <div class="row3 f" style="border-bottom:1px solid #f4f4f4">
-                <div class="f">
-                    <span class="f-ac" style="margin-right:20px;">
+                    <a href="/" class="f-ac">
+                        <div class="progress-bar">
+                            <div
+                                class="current-progress"
+                                :style="{width:currentExperiencePercentage+'%'}"
+                            ></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="row3 f" style="border-bottom:1px solid #f4f4f4">
+                    <div class="f">
+                        <span class="f-ac" style="margin-right:20px;">
+                            <i
+                                class="iconfont icon-coin"
+                                style="color:#00a1d6;font-size:18px;padding:1px;margin-right:5px;"
+                            ></i>
+                            {{user.coin}}
+                        </span>
+                        <span class="f-ac">
+                            <i
+                                class="iconfont icon-bcoin"
+                                style="color:rgb(255, 174, 0);font-size:18px;padding:1px;margin-right:5px;"
+                            ></i>
+                            {{user.bCoin}}
+                        </span>
+                    </div>
+                    <div style="margin-left:auto;">
                         <i
-                            class="iconfont icon-coin"
-                            style="color:#00a1d6;font-size:18px;padding:1px;margin-right:5px;"
+                            class="iconfont icon-email"
+                            style=" margin-right:5px;font-size:20px;"
+                            :style="{color:user.isBindingEmail?'#00a1d6':'#aaa'}"
                         ></i>
-                        {{user.coin}}
-                    </span>
-                    <span class="f-ac">
                         <i
-                            class="iconfont icon-bcoin"
-                            style="color:rgb(255, 174, 0);font-size:18px;padding:1px;margin-right:5px;"
+                            class="iconfont icon-phone1"
+                            style=" font-size:20px;"
+                            :style="{color:user.isBindingPhone?'#00a1d6':'#aaa'}"
                         ></i>
-                        {{user.bCoin}}
+                    </div>
+                </div>
+                <div class="row4 f-jc-sb f-c-f1 cf12">
+                    <span>
+                        <div class="item-key">关注</div>
+                        <div class="item-value">{{user.following|nonZero}}</div>
+                    </span>
+                    <span>
+                        <div class="item-key">粉丝</div>
+                        <div class="item-value">{{user.followers|nonZero}}</div>
+                    </span>
+                    <span>
+                        <div class="item-key">动态</div>
+                        <div class="item-value">{{user.dynamic|nonZero}}</div>
                     </span>
                 </div>
-                <div style="margin-left:auto;">
-                    <i
-                        class="iconfont icon-email"
-                        style=" margin-right:5px;font-size:20px;"
-                        :style="{color:user.isBindingEmail?'#00a1d6':'#aaa'}"
-                    ></i>
-                    <i
-                        class="iconfont icon-phone1"
-                        style=" font-size:20px;"
-                        :style="{color:user.isBindingPhone?'#00a1d6':'#aaa'}"
-                    ></i>
-                </div>
-            </div>
-            <div class="row4 f-jc-sb f-c-f1 cf12">
-                <span>
-                    <div class="item-key">关注</div>
-                    <div class="item-value">{{user.following|nonZero}}</div>
-                </span>
-                <span>
-                    <div class="item-key">粉丝</div>
-                    <div class="item-value">{{user.followers|nonZero}}</div>
-                </span>
-                <span>
-                    <div class="item-key">动态</div>
-                    <div class="item-value">{{user.dynamic|nonZero}}</div>
-                </span>
-            </div>
-            <div class="row5">
-                <div>
-                    <i class="iconfont icon-Union"></i>个人中心
-                </div>
-                <div>
-                    <i class="iconfont icon-Subtract2"></i>投稿管理
-                </div>
-                <div>
-                    <i class="iconfont icon-Union1"></i>B币钱包
-                </div>
-                <div>
-                    <i class="iconfont icon-Subtract6"></i>订单中心
-                </div>
-                <div>
-                    <i class="iconfont icon-Subtract4"></i>直播中心
-                </div>
-                <div>
-                    <i class="iconfont icon-Subtract5"></i>我的课程
+                <div class="row5">
+                    <div>
+                        <i class="iconfont icon-Union"></i>个人中心
+                    </div>
+                    <div>
+                        <i class="iconfont icon-Subtract2"></i>投稿管理
+                    </div>
+                    <div>
+                        <i class="iconfont icon-Union1"></i>B币钱包
+                    </div>
+                    <div>
+                        <i class="iconfont icon-Subtract6"></i>订单中心
+                    </div>
+                    <div>
+                        <i class="iconfont icon-Subtract4"></i>直播中心
+                    </div>
+                    <div>
+                        <i class="iconfont icon-Subtract5"></i>我的课程
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,9 +129,13 @@ export default {
     methods: {
         updateShowBubble(value) {
             if (value) {
-                this.$el.parentElement.firstElementChild.classList.add('active');
+                this.$el.parentElement.firstElementChild.classList.add(
+                    "active"
+                );
             } else {
-                this.$el.parentElement.firstElementChild.classList.remove('active');
+                this.$el.parentElement.firstElementChild.classList.remove(
+                    "active"
+                );
             }
             this.showBubble = value;
         }
@@ -147,6 +153,17 @@ export default {
 <style lang="scss" scoped>
 .nav-bubble-user {
     color: black;
+    position: relative;
+    .avatar {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform:translate(-50%,-50%);
+        border-radius: 100%;
+        overflow: hidden;
+        width: 68px;
+        height: 68px;
+    }
     .con {
         .username {
             color: #212121;

@@ -171,6 +171,7 @@ export default {
         }
 
         li {
+            position: relative;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -191,4 +192,5 @@ export default {
         }
     }
 }
+ 
 </style>
