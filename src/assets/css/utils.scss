@@ -1,0 +1,108 @@
+
+.line{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    min-width: 999px;
+}
+.line-body{
+    
+}
+
+.response-width {
+    height: 100%;
+    width:1630px;
+    @media screen and (max-width: 1870px) {
+        width: 1414px;
+    }
+    @media screen and (max-width: 1654px) {
+        width: 1198px;
+    }
+    @media screen and (max-width: 1438px) {
+        width: 999px;
+    }
+}
+
+.flex-column{
+    display:flex;
+    flex-direction: column;
+}
+.f{
+    display: flex;
+}
+.f-c{
+    display:flex;
+    flex-direction: column;
+}
+.f-ac{
+    display:flex;
+    align-items: center;
+}
+.f-jc{
+    display:flex;
+    justify-content:center;
+}
+
+.f-jc-sb{
+    display:flex;
+    justify-content: space-between;
+}
+.f-c-j{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-c-c{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.c-f-f1>*{
+    flex:1;
+}
+.cf12>*{
+    font-size:12px;
+}
+
+.fs-24{
+    font-size:24px;
+}
+
+.ml-a{
+    margin-left:auto;
+}
+
+
+
+
+.w100p{
+    width:100%;
+}
+.h100p{
+    height:100%;
+}
+
+
+.bs-b{
+    box-sizing: border-box;
+}
+.bs-c{
+    box-sizing: content-box;
+}
+
+.c-p{
+    cursor: pointer;
+}
+
+
+.ts-ae10{
+    transition: all ease 1s;
+}
+.ts-ae5{
+    transition: all ease 0.5s;
+}
+
+.chs-d-b>*{
+    display: block;
+}

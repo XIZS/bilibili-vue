@@ -45,8 +45,14 @@
                     <span>大会员</span>
                     <nav-bubble-member />
                 </li>
-                <li>消息</li>
-                <li>动态</li>
+                <li>
+                    <span>消息</span>
+                    <nav-bubble-message></nav-bubble-message>
+                </li>
+                <li>
+                    <span>动态</span>
+                 
+                </li>
                 <li>收藏</li>
                 <li>历史</li>
                 <li>创作中心</li>
@@ -67,13 +73,15 @@ import BiliButton from "./bili-button.vue";
 import NavBubble from "./nav-bubble.vue";
 import NavBubbleUser from "./nav-bubble-user.vue";
 import NavBubbleMember from "./nav-bubble-member.vue";
+import NavBubbleMessage from './nav-bubble-message.vue';
 
 export default {
     components: {
         BiliButton,
         NavBubble,
         NavBubbleUser,
-        NavBubbleMember
+        NavBubbleMember,
+        NavBubbleMessage
     },
     methods: {
         contribute() {}

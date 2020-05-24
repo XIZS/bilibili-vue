@@ -4,7 +4,7 @@
             class="banner-bar"
             style="background-image:url(http://i0.hdslb.com/bfs/archive/5e649b0c6f1d395833b9b8c0b59e5d84780cebf9.png)"
             @mouseover="showBannerTitle=true"
-            @mouseout="showBannerTitle=false"
+            @mouseout="showBannerTitle=false" 
         >
             <common-nav style="position:absolute;top:0;z-index:1" />
         </div>
@@ -36,6 +36,14 @@ export default {
             showBannerTitle: false
         };
     },
+    methods:{
+        mouseover(){
+            console.log('mouseover')
+        },
+        mouseout(){
+            console.log('mouseout')
+        }
+    }
  
 };
 </script>

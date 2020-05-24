@@ -4,7 +4,7 @@
         <home-head></home-head>
         <div class="response-width"></div>
 
-        <!-- 导航栏,特征:在首页的时候position为absolute,其他状态为relative -->
+        <!-- 右侧模块导航栏,特征:在首页的时候position为absolute,其他状态为relative -->
     </div>
 </template>
 

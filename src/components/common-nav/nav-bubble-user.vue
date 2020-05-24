@@ -14,7 +14,7 @@
         </div>
         <div class="con">
             <div class="row1 username">{{user.username}}</div>
-            <div class="row2 level f-c">
+            <div class="row2 level f-c" ref="levelDis">
                 <div class="row1 f-ac">
                     <div>等级: {{user.level}}</div>
                     <div
@@ -29,6 +29,23 @@
                         ></div>
                     </div>
                 </a>
+                <bili-bubble :target="$refs['levelDis']">
+                    <div style="padding:15px; width:240px;white-space: normal;" class="bs-b">
+                        <div style="margin-bottom:12px;">作为LV5 ，你可以：</div>
+                        <div style="margin-bottom:14px;">
+                            1购买邀请码(1个/月)
+                            <br>
+                            2、发射个性弹幕（彩色、高级、顶部、底部）
+                            <br>
+                            3、参与视频互动（评论、添加tag）
+                            <br>
+                            4、投稿成为偶像
+                        </div>
+                        <a href="" style="color:#00a1d6">
+                            会员等级相关说明 <i class="iconfont icon-right" style="font-size:16px; color:#00a1d6"></i>
+                        </a>
+                    </div>
+                </bili-bubble>
             </div>
             <div class="row3 f" style="border-bottom:1px solid #f4f4f4">
                 <div class="f">
@@ -60,6 +77,7 @@
                     ></i>
                 </div>
             </div>
+            <!-- 第二栏 -->
             <div class="row4 f-jc-sb f-c-f1 cf12">
                 <span>
                     <div class="item-key">关注</div>
@@ -74,25 +92,54 @@
                     <div class="item-value">{{user.dynamic|nonZero}}</div>
                 </span>
             </div>
-            <div class="row5">
-                <div>
-                    <i class="iconfont icon-Union"></i>个人中心
+            <!-- 第三栏 -->
+            <div class="row5" >
+                <a>
+                    <i class="iconfont icon-user"></i>个人中心
+                </a>
+                <a>
+                    <i class="iconfont icon-video-file"></i>投稿管理
+                </a>
+                <a>
+                    <i class="iconfont icon-wallet"></i>B币钱包
+                </a>
+                <a>
+                    <i class="iconfont icon-order"></i>订单中心
+                </a>
+                <a>
+                    <i class="iconfont icon-camera"></i>直播中心
+                </a>
+                <a>
+                    <i class="iconfont icon-book"></i>我的课程
+                </a>
+            </div>
+            <!-- 第四栏 -->
+            <div class="row6 " ref="selectBar">
+                <div class="select-btn f-ac w100p bs-b c-p ts-ae5" >
+                    <i class="iconfont icon-diqiu" style="margin-right:5px;"></i>
+                    <span>语言: </span>
+                    <span>简体中文</span>
+                    <i class="iconfont icon-right ml-a"></i>
+
+                    <!-- 该模块模式有:普通模式和箭头模式,箭头可以进行偏移设置,主体也可偏移设置,可以设置位置和对齐位置,还可以绑定对象 -->
+                    <bili-bubble  :target="target">
+                        <div style="padding:8px 0; width:240px;">
+                            <div style="padding:8px 15px;">
+                                简体中文
+                            </div>
+                            <div style="padding:8px 15px;">
+                                繁体中文
+                            </div>
+                        </div>
+                    </bili-bubble>
+                    
                 </div>
-                <div>
-                    <i class="iconfont icon-Subtract2"></i>投稿管理
-                </div>
-                <div>
-                    <i class="iconfont icon-Union1"></i>B币钱包
-                </div>
-                <div>
-                    <i class="iconfont icon-Subtract6"></i>订单中心
-                </div>
-                <div>
-                    <i class="iconfont icon-Subtract4"></i>直播中心
-                </div>
-                <div>
-                    <i class="iconfont icon-Subtract5"></i>我的课程
-                </div>
+            </div>
+            <div class="row7">
+                <a href="" class="f-ac" style=" padding:8px 23px;">
+                    <i class="iconfont icon-exit" style="margin-right:5px;"></i>
+                    退出
+                </a>
             </div>
         </div>
     </nav-bubble>
@@ -101,7 +148,8 @@
 import NavBubble from "./nav-bubble.vue";
 export default {
     mounted() {
-        console.log(this.$el.parentElement.firstElementChild);
+        console.log(this.$refs['selectBar']);
+        this.target=this.$refs['selectBar'];
     },
     components: {
         NavBubble
@@ -121,7 +169,8 @@ export default {
                 following: 148,
                 followers: 0,
                 dynamic: 0
-            }
+            },
+            target:this.$refs['selectBar']
         };
     },
     methods: {
@@ -140,6 +189,9 @@ export default {
                 (this.user.currentExperience / this.user.upgradeExperience) *
                 100
             );
+        },
+        selectLanguageTarget(){
+            return this.$refs['selectBar']
         }
     }
 };
@@ -147,6 +199,7 @@ export default {
 <style lang="scss" scoped>
 .nav-bubble-user {
     color: black;
+
     .con {
         .username {
             color: #212121;
@@ -213,8 +266,8 @@ export default {
             font-size: 14px;
             cursor: pointer;
             padding: 5px 0;
-
-            > div {
+            border-bottom:1px solid #f4f4f4;
+            > a {
                 padding: 8px 23px;
                 display: flex;
                 align-items: center;
@@ -222,8 +275,37 @@ export default {
                     font-size: 24px;
                     margin-right: 5px;
                 }
+                &:hover{
+                    background:#f4f4f4;
+                }
             }
         }
+        .row6{
+            padding:7px 0;
+            border-bottom:1px solid #f4f4f4;
+
+            .select-btn{
+                padding:8px 23px;
+
+                &:hover{
+                    background: #f4f4f4;
+                }
+            }
+        }
+        .row7{
+            padding:7px 0;
+
+            a:hover{
+                
+                    background: #f4f4f4;
+               
+            }
+        }
+    }
+
+    .iconfont{
+        font-size:24px;
+        color:#999;
     }
 }
 </style>
