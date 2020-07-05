@@ -51,9 +51,13 @@
                 </li>
                 <li>
                     <span>动态</span>
-                 
+                    <nav-bubble-dynamics></nav-bubble-dynamics>
                 </li>
-                <li>收藏</li>
+                <li>
+                    <span>收藏</span>
+                    <nav-bubble-Collect></nav-bubble-Collect>
+
+                </li>
                 <li>历史</li>
                 <li>创作中心</li>
                 <li>
@@ -69,19 +73,20 @@
 
 
 <script>
-import BiliButton from "./bili-button.vue";
 import NavBubble from "./nav-bubble.vue";
 import NavBubbleUser from "./nav-bubble-user.vue";
 import NavBubbleMember from "./nav-bubble-member.vue";
 import NavBubbleMessage from './nav-bubble-message.vue';
-
+import NavBubbleDynamics from './nav-bubble-dynamics.vue'
+import NavBubbleCollect from './nav-bubble-collect.vue'
 export default {
     components: {
-        BiliButton,
         NavBubble,
         NavBubbleUser,
         NavBubbleMember,
-        NavBubbleMessage
+        NavBubbleMessage,
+        NavBubbleDynamics,
+        NavBubbleCollect
     },
     methods: {
         contribute() {}

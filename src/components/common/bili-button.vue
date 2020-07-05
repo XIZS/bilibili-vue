@@ -7,11 +7,12 @@
 
 <script>
 export default {
+    name:"bili-button",
     props: {
         type: {
             type: String,
             default: "default"
-        }
+        }, 
     },
     methods: {
         onClick(event) {
@@ -34,5 +35,6 @@ export default {
 .bili-button {
     font-size: 14px;
     display: inline-block;
+    cursor:pointer;
 }
 </style>

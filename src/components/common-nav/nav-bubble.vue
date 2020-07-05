@@ -41,7 +41,7 @@ export default {
     props: {
         showBubble: {
             type: Boolean,
-            default: false
+            default: true//SET
         }
     },
     data() {
@@ -75,6 +75,7 @@ export default {
     text-shadow: none;
     position: absolute;
     top: 100%;
+    color:#212121;
     background: white;
     border-radius: 4px;
     cursor: default;

@@ -10,6 +10,12 @@ import directives from './directives';
 directives;
 import filters from './filters';
 filters;
+import commonComponents from './components/common/index.js'
+commonComponents;
+
+import api from "./assets/js/api"
+// import { component } from 'vue/types/umd'
+Vue.use(api);
 
 
 Vue.component('bili-bubble',biliButton);

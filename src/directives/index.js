@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import to from './to.js'
 import hover from './hover.js'
+import eventToDown from './scroll-down.js'
 const directives = [
     to,
-    hover
+    hover,
+    eventToDown
 ]
 
 console.log('tooo');
