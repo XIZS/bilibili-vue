@@ -48,4 +48,11 @@ Vue.filter('t2b', function (value) {
 
 
 })
+
+Vue.filter('MinuteAndSecond',function(value){
+    console.log()
+    let m = Math.floor(value/60).toString().padStart(2,"0");
+    let s =  value%60 .toString().padStart(2,"0")
+    return `${m}:${s}`
+})
 export default {}

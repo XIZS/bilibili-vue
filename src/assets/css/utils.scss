@@ -74,12 +74,20 @@
 .ml-a{
     margin-left:auto;
 }
+.mt-a{
+    margin-top:auto;
+}
 
 .c-f-f1>*{
     flex:1;
 }
 .cf12>*{
     font-size:12px;
+}
+.c-f-c-c>*{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fs-12{
