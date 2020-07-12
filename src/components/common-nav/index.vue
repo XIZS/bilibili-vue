@@ -196,6 +196,7 @@ export default {
             align-items: center;
             margin-left: 12px;
             white-space: nowrap;
+            position:relative;
             .avatar {
                 border-radius: 100%;
                 height: 100%;

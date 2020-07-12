@@ -1,5 +1,5 @@
 <template>
-    <nav-bubble>
+    <nav-bubble :width="370">
         <div class="nav-bubble-history">
             <!-- 选项 -->
             <div class="nav-items">

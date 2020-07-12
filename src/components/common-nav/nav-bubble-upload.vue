@@ -1,5 +1,5 @@
 <template>
-    <nav-bubble>
+    <nav-bubble :width="304">
         <div class="nav-bubble-upload f">
             <div class="item">
                 <i class="iconfont icon-column-upload"></i>

@@ -1,5 +1,5 @@
 <template>
-    <nav-bubble style="width:260px;padding:14px;box-sizing:border-box;">
+    <nav-bubble :width="260" style="width:260px;padding:14px;box-sizing:border-box;">
         <div style="font-weight:bold;color:black;padding:5px 0 12px;">精彩推荐</div>
         <div class="f-jc-sb">
             <a href="/" class="flex-column" style="width:72px;">

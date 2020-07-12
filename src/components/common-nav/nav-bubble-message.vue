@@ -1,5 +1,5 @@
 <template>
-    <nav-bubble>
+    <nav-bubble :width="172">
         <div class="body chs-d-b f-column f-col">
             <a href="/">回复我的</a>
             <a href="/">@我的</a>

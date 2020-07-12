@@ -3,9 +3,9 @@
         <div
             v-show="currentShowBubble"
             class="nav-bubble"
-            :style="{transform:`translateX(calc(-50% + ${parentWidthOffset}px)`}"
+            :style="{transform:`translateX(${position}px)`}"
         >
-            <div class="dir-wrap">
+            <div class="dir-wrap" :style="{transform:`translate(calc(${dirPosition}px), -50%)`}">
                 <slot name="top">
                     <div class="dir"></div>
                 </slot>
@@ -21,6 +21,7 @@
 <script  >
 export default {
     mounted() {
+        this.currentShowBubble = this.showBubble;
         this.parentWidthOffset = this.$el.parentElement.clientWidth / 2;
 
         let closeLock = null;
@@ -28,8 +29,9 @@ export default {
             if (closeLock != null) {
                 clearTimeout(closeLock);
             }
+            this.updatePosition();
+            this.updateDirPosition();
             this.currentShowBubble = true;
-            console.log(this.$el.clientWidth,this.currentShowBubble);
         });
 
         this.$el.parentElement.addEventListener("mouseout", () => {
@@ -37,24 +39,54 @@ export default {
                 this.currentShowBubble = false;
             }, 100);
         });
-        
     },
     props: {
         showBubble: {
             type: Boolean,
-            default: false//SET
+            default: false //SET
+        },
+        width: {
+            type: Number,
+            required: true
         }
     },
     data() {
         return {
             parentWidthOffset: 0,
             currentShowBubble: this.showBubble,
+            position: 0,
+            dirPosition: 0
         };
     },
-    methods: {},
-    watch:{
-        currentShowBubble(){
-            this.$emit('updateShowBubble',this.currentShowBubble);
+    methods: {
+        updatePosition() {
+            console.log(this.$el);
+            //获取父元素
+            //使用getBoundingClientRect,获取right的值
+            let rightPosi = this.$el.parentElement.getBoundingClientRect()
+                .right;
+            //获取屏幕宽度
+            let windownWidth = window.innerWidth;
+            //计算父元素的右边到屏幕右边的距离
+            let offset = windownWidth - rightPosi;
+            //判断距离是否小于当前浮动窗口的宽度/2
+            //设置窗口位置,右对齐,向右偏移最小的那个值-父元素宽度/2
+            if (offset > this.width / 2) {
+                //返回根据this.width/2计算的偏移量
+                this.position = this.width / 2 - this.parentWidthOffset;
+            } else {
+                console.log(this.width / 2, offset, "offset");
+                //使用offset的偏移量
+                this.position = offset;
+            }
+        },
+        updateDirPosition() {
+            this.dirPosition = this.width / 2 - this.position-this.parentWidthOffset-5;
+        }
+    },
+    watch: {
+        currentShowBubble() {
+            this.$emit("updateShowBubble", this.currentShowBubble);
         }
     }
 };
@@ -75,8 +107,9 @@ export default {
 .nav-bubble {
     text-shadow: none;
     position: absolute;
-    top: 100%;
-    color:#212121;
+    right: 0;
+    top: 125%;
+    color: #212121;
     background: white;
     border-radius: 4px;
     cursor: default;
@@ -84,7 +117,6 @@ export default {
 
     .dir-wrap {
         position: absolute;
-        transform: translate(-50%, -50%);
         top: 0;
         left: 50%;
         .dir {

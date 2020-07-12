@@ -1,5 +1,5 @@
 <template>
-    <nav-bubble>
+    <nav-bubble :width="520">
         <div class="nav-bubble-collect f">
             <div class="left f-col f-s-0">
                 <bili-button

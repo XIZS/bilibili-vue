@@ -1,5 +1,6 @@
 <template>
     <nav-bubble
+    :width="280"
         style="width:280px"
         class="nav-bubble-user"
         @updateShowBubble="updateShowBubble"
