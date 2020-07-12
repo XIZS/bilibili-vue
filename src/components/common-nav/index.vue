@@ -55,16 +55,19 @@
                 </li>
                 <li>
                     <span>收藏</span>
-                    <nav-bubble-Collect></nav-bubble-Collect>
-
+                    <nav-bubble-collect></nav-bubble-collect>
                 </li>
-                <li>历史</li>
+                <li>
+                    <span>历史</span>
+                    <nav-bubble-history></nav-bubble-history>
+                </li>
                 <li>创作中心</li>
                 <li>
                     <bili-button
                         @click="contribute"
                         style="width:100px;background:#fb7299;height:100%;display:flex;align-items:center;justify-content:center;border-radius:2px;"
                     >投稿</bili-button>
+                    <nav-bubble-upload></nav-bubble-upload>
                 </li>
             </ul>
         </div>
@@ -76,9 +79,11 @@
 import NavBubble from "./nav-bubble.vue";
 import NavBubbleUser from "./nav-bubble-user.vue";
 import NavBubbleMember from "./nav-bubble-member.vue";
-import NavBubbleMessage from './nav-bubble-message.vue';
-import NavBubbleDynamics from './nav-bubble-dynamics.vue'
-import NavBubbleCollect from './nav-bubble-collect.vue'
+import NavBubbleMessage from "./nav-bubble-message.vue";
+import NavBubbleDynamics from "./nav-bubble-dynamics.vue";
+import NavBubbleCollect from "./nav-bubble-collect.vue";
+import NavBubbleHistory from "./nav-bubble-history.vue";
+import NavBubbleUpload from './nav-bubble-upload.vue'
 export default {
     components: {
         NavBubble,
@@ -86,7 +91,9 @@ export default {
         NavBubbleMember,
         NavBubbleMessage,
         NavBubbleDynamics,
-        NavBubbleCollect
+        NavBubbleCollect,
+        NavBubbleHistory,
+        NavBubbleUpload
     },
     methods: {
         contribute() {}
@@ -192,10 +199,10 @@ export default {
             .avatar {
                 border-radius: 100%;
                 height: 100%;
-                overflow: hidden; 
-                transition:all .5s ease;
-                &.active{
-                    transform:translateY(30px) scale(1.5);
+                overflow: hidden;
+                transition: all 0.5s ease;
+                &.active {
+                    transform: translateY(30px) scale(1.5);
                 }
                 img {
                     height: 100%;

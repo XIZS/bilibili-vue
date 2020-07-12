@@ -133,24 +133,26 @@
                     </div>
                 </div>
             </div>
-            </div>
         </div>
     </nav-bubble>
 </template>
 <script>
+//遇到的错误,因为历史栏的内容和本组件内容一样,所以历史栏直接使用本组件的部分代码,结果本组件选中的按钮无法中长显示,后来发现原因是,
+//radio的name和历史栏的radio的name一致,导致显示的选中项在历史栏中
+
 import NavBubbleDynamicsItem from "./nav-bubble-dynamics-item";
 export default {
     components: {
         NavBubbleDynamicsItem
     },
     mounted() {
-        this.dynamicsUpdate("column")
+        this.dynamicsUpdate("video")
         // this.columnUpdate();//TEMPORARY  原来的:this.videoUpdate
     },
     data() {
         return {
             currentRequestType: "video",
-            selectedItem: "column",
+            selectedItem: "video",
 
             dynamicsVideos: [],
             dynamicsLives: [],

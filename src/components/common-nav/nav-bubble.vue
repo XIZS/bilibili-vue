@@ -22,7 +22,6 @@
 export default {
     mounted() {
         this.parentWidthOffset = this.$el.parentElement.clientWidth / 2;
-        console.log(this.$el.parentElement);
 
         let closeLock = null;
         this.$el.parentElement.addEventListener("mouseover", () => {
@@ -30,6 +29,7 @@ export default {
                 clearTimeout(closeLock);
             }
             this.currentShowBubble = true;
+            console.log(this.$el.clientWidth,this.currentShowBubble);
         });
 
         this.$el.parentElement.addEventListener("mouseout", () => {
@@ -37,11 +37,12 @@ export default {
                 this.currentShowBubble = false;
             }, 100);
         });
+        
     },
     props: {
         showBubble: {
             type: Boolean,
-            default: true//SET
+            default: false//SET
         }
     },
     data() {

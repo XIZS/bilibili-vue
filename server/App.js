@@ -33,7 +33,7 @@ function initRoutes(file) {
                     initRoutes(path.join(file,f))
                 } else {
                     let api =  require(path.join(file, f)) 
-                    console.log(api);
+                    console.log(f);
                     api.get&&router.get("/"+f.split('.')[0],async(ctx,next)=>{
                         console.log('a');
                         api.get(ctx);

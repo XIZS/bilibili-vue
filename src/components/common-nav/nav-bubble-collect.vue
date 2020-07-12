@@ -26,7 +26,7 @@
                 </div>
                 <div class="sel f-s-0  c-f-c-c">
                     <div>查看更多</div>
-                    <div style="color:#00a1d6">播放全部</div>
+                    <div style="color:#00a1d6"> <i class="iconfont icon-play" style="margin-right:10px;"></i> 播放全部</div>
                 </div>
             </div>
         </div>
