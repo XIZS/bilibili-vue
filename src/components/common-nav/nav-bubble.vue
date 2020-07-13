@@ -60,7 +60,6 @@ export default {
     },
     methods: {
         updatePosition() {
-            console.log(this.$el);
             //获取父元素
             //使用getBoundingClientRect,获取right的值
             let rightPosi = this.$el.parentElement.getBoundingClientRect()
@@ -75,7 +74,6 @@ export default {
                 //返回根据this.width/2计算的偏移量
                 this.position = this.width / 2 - this.parentWidthOffset;
             } else {
-                console.log(this.width / 2, offset, "offset");
                 //使用offset的偏移量
                 this.position = offset;
             }
@@ -119,6 +117,7 @@ export default {
         position: absolute;
         top: 0;
         left: 50%;
+        z-index: -1;
         .dir {
             transform: rotate(45deg);
             display: block;

@@ -11,22 +11,19 @@
                         name="dynamics"  
                     />
                     <span class="item-text">
-                        视频
-                        <span class="dt">动态</span>
+                        视频<span class="dt">动态</span>
                     </span>
                 </label>
                 <label class="item">
                     <input type="radio" v-model="selectedItem" value="live" name="dynamics" id />
                     <span class="item-text">
-                        直播
-                        <span class="dt">动态</span>
+                        直播<span class="dt">动态</span>
                     </span>
                 </label>
                 <label class="item">
                     <input type="radio" v-model="selectedItem" value="column" name="dynamics" id />
                     <span class="item-text">
-                        专栏
-                        <span class="dt">动态</span>
+                        专栏<span class="dt">动态</span>
                     </span>
                 </label>
             </div>
@@ -202,7 +199,6 @@ export default {
             this.reqGet(OA).then(res=>{
                 this[OA].push(...res);
                 this[LC]++;
-                console.log(LC,this[LC])
             })
         }
     },
@@ -216,7 +212,6 @@ export default {
                 }
                 newViewos.push(item);
             }
-            console.log(newViewos);
             return newViewos;
         },
         //旧的视频动态
@@ -251,7 +246,6 @@ export default {
     watch: {
         selectedItem: function(newVal) {
             this.dynamicsUpdate(newVal);
-            // console.log(this.selectedItem); 
             // this.currentRequestType = newVal + "Update";
             // this[this.currentRequestType]();
         }

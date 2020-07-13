@@ -48,7 +48,6 @@ export default {
             this.show=true;
         },
         targetMouseOut(event){
-            console.log(event)
             if(this.target.contains(event.toElement)){
                 return;
             }
@@ -58,8 +57,6 @@ export default {
     },
     mounted(){
         //为绑定对象添加默认的position来为当前组件定位.
-       console.log(this.$refs)
-     
     },
     watch:{
         target(newTarget,oldTarget){
@@ -68,7 +65,6 @@ export default {
                 oldTarget.removeEventListener('mouseover',this.targetMouseOver);
                 oldTarget.removeEventListener('mouseout',this.targetMouseOut);
             } 
-             console.log(arguments);
             if(this.target.style.position===""){
                 this.target.style.position="relative"
             }

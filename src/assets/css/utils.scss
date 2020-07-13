@@ -149,3 +149,17 @@
 .pa{
     position: absolute;
 }
+
+
+@mixin dynamic-width($default, $max, $mid, $min) {
+    width: $default;
+    @media screen and (max-width: 1870px) {
+        width: $max;
+    }
+    @media screen and (max-width: 1654px) {
+        width: $mid;
+    }
+    @media screen and (max-width: 1438px) {
+        width: $min;
+    }
+}

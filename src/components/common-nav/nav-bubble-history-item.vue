@@ -87,7 +87,6 @@ export default {
             ];
             let [Today, yesterday, earlier] = result;
             let nowDay = Math.floor(new Date() / 86400000);
-            console.log(this.histories);
             this.histories.forEach(x => {
                 let xTime = Math.floor(new Date(x.time) / 86400000);
 

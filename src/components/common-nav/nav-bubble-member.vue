@@ -27,7 +27,7 @@
             </a>
         </div>
         <div style="margin-top:20px" class="f-c-j">
-            <div style="width:160px;height:32px;background:#00a1d6;" class="f-c-j">开通大会员</div>
+            <div style="width:160px;height:32px;background:#00a1d6;color:white;" class="f-c-j">开通大会员</div>
         </div>
     </nav-bubble>
 </template>

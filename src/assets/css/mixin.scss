@@ -1,0 +1,17 @@
+@mixin f-c-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin dynamic-width($default, $max, $mid, $min) {
+    width: $default;
+    @media screen and (max-width: 1870px) {
+        width: $max;
+    }
+    @media screen and (max-width: 1654px) {
+        width: $mid;
+    }
+    @media screen and (max-width: 1438px) {
+        width: $min;
+    }
+}

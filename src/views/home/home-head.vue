@@ -38,10 +38,8 @@ export default {
     },
     methods:{
         mouseover(){
-            console.log('mouseover')
         },
         mouseout(){
-            console.log('mouseout')
         }
     }
  

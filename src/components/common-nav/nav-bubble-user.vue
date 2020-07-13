@@ -149,7 +149,6 @@
 import NavBubble from "./nav-bubble.vue";
 export default {
     mounted() {
-        console.log(this.$refs['selectBar']);
         this.target=this.$refs['selectBar'];
     },
     components: {

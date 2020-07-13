@@ -10,7 +10,7 @@
     </nav-bubble>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .body{
         padding:10px 0;
         width:172px;
