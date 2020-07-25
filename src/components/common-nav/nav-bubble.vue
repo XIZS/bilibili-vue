@@ -21,6 +21,7 @@
 <script  >
 export default {
     mounted() {
+        console.dir(this.$el.getBoundingClientRect())
         this.currentShowBubble = this.showBubble;
         this.parentWidthOffset = this.$el.parentElement.clientWidth / 2;
 
@@ -98,7 +99,7 @@ export default {
 }
 .bubble-enter,
 .bubble-leave-to {
-    top: 90% !important;
+    top: 98% !important;
     opacity: 0;
 }
 

@@ -1,10 +1,15 @@
 module.exports = {
-    //配置全局样式变量
-    css: {
-        loaderOptions: {
-            sass: {
-                data: `@import "@/src/assets/css/mixin.scss";`
-            }
-        }
+    chainWebpack: config => {
+        const oneOfsMap = config.module.rule('scss').oneOfs.store
+        oneOfsMap.forEach(item => {
+            item
+                .use('sass-resources-loader')
+                .loader('sass-resources-loader')
+                .options({
+                    // 要公用的scss的路径
+                    resources: './src/assets/css/mixin.scss'
+                })
+                .end()
+        })
     }
 }

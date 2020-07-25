@@ -43,6 +43,10 @@
     display:flex;
     align-items: center;
 }
+.f-ab{
+    display: flex;   
+    align-items:baseline;
+}
 .f-jc{
     display:flex;
     justify-content:center;
@@ -70,7 +74,9 @@
     display: flex;
     flex-shrink: 0;
 }
-
+.m-0-a{
+    margin:0 auto;
+}
 .ml-a{
     margin-left:auto;
 }
@@ -100,7 +106,6 @@
 .ml-a{
     margin-left:auto;
 }
-
 
 
 

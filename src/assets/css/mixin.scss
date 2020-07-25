@@ -3,6 +3,10 @@
     align-items: center;
     justify-content: center;
 }
+@mixin f-col{
+    display:flex;
+    flex-direction: column;
+}
 @mixin dynamic-width($default, $max, $mid, $min) {
     width: $default;
     @media screen and (max-width: 1870px) {

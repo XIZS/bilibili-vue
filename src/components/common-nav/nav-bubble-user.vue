@@ -6,7 +6,7 @@
         @updateShowBubble="updateShowBubble"
         :showBubble="showBubble"
     >
-        <div slot="top" style="border-radius:100%;overflow: hidden;width:68px;height:68px;">
+        <div   style="width: 68px; height: 68px; border-radius: 100%; overflow: hidden; left: 50%; position: absolute; transform: translate(-50%,-50%);">
             <img
                 style="width:68px;height:68px;"
                 src="http://i0.hdslb.com/bfs/face/96dedf9951ec18abf83d64a7664f1f4438c8e512.jpg@70w_70h_1c_100q.webp"
@@ -123,7 +123,7 @@
                     <i class="iconfont icon-right ml-a"></i>
 
                     <!-- 该模块模式有:普通模式和箭头模式,箭头可以进行偏移设置,主体也可偏移设置,可以设置位置和对齐位置,还可以绑定对象 -->
-                    <bili-bubble  :target="target">
+                    <bili-bubble  :target="$refs['selectBar']">
                         <div style="padding:8px 0; width:240px;">
                             <div style="padding:8px 15px;">
                                 简体中文
@@ -149,7 +149,7 @@
 import NavBubble from "./nav-bubble.vue";
 export default {
     mounted() {
-        this.target=this.$refs['selectBar'];
+        // this.target=this.$refs['selectBar'];
     },
     components: {
         NavBubble
@@ -170,7 +170,7 @@ export default {
                 followers: 0,
                 dynamic: 0
             },
-            target:this.$refs['selectBar']
+            // target:this.$refs['selectBar']
         };
     },
     methods: {
