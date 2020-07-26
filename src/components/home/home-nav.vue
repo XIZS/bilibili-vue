@@ -14,7 +14,7 @@
                             <bili-bubble
                                 v-if="item.childrenChannel&&item.childrenChannel.length>0"
                                 :location="index%2!==0?'bottom':'top'"
-                                :style="{transform:`translate(-13px,${index%2!==0?'12px':'-12px'})`}"
+                                :style="{transform:`translate(-13px,${index%2!==0?'12px':'-12px'})`,zIndex:2}"
                             >
                                 <div class="chi-cha">
                                     <div

@@ -104,6 +104,7 @@ export default {
 }
 
 .nav-bubble {
+    z-index: 1;
     text-shadow: none;
     position: absolute;
     right: 0;
