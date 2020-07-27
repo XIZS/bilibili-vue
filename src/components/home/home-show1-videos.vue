@@ -1,5 +1,5 @@
 <template>
-    <div class="hsv home-show1-videos w100p h100p f">
+    <div class="hsv home-show1-videos w100p h100p f" @mouseenter="control=true" @mouseleave="control=false">
         <div class="item" v-for="(item,index) in currentVideos" :key="index">
             <div class="wh100p bo" style="overflow: hidden; position:relative;border-radius:2px;">
                 <img class="wh100p" :src="item.image" alt />
@@ -16,6 +16,12 @@
                 <i class="iconfont icon-later-play"></i>
                 <span class="msg">稍后再看</span>
             </div>
+        </div>
+        <div class="left cont" :class="{active:control}" @click="prev">
+            <i class="iconfont icon-left"></i>
+        </div>
+        <div class="right cont" :class="{active:control}" @click="next">
+            <i class="iconfont icon-right"></i>
         </div>
     </div>
 </template>
@@ -34,21 +40,43 @@ export default {
     data() {
         return {
             current: 0,
+            control: true,
             videos: [],
         };
+    },
+    methods:{
+        prev(){
+            if(this.current===0){
+                this.current= this.videos.length/10;
+                return;
+            }
+            this.current--;
+        },
+        next(){
+            if(this.current>=(this.videos.length/10)-1){
+                this.current=0;
+                return;
+            }
+            this.current++;
+        }
     },
     computed: {
         currentVideos() {
             return this.videos.slice(this.current * 10, this.current * 10 + 10);
         },
     },
+    watch:{
+        current(){
+            console.log(this.current)
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
 .hsv {
     flex-wrap: wrap;
     justify-content: space-between;
-
+    position: relative;
     @media screen and(max-width:1870px) {
         .item:nth-child(n + 9) {
             display: none;
@@ -170,6 +198,29 @@ export default {
         &:hover .later-play {
             transition-delay: 0.2s;
 
+            opacity: 1;
+        }
+    }
+
+    .cont {
+        opacity: 0;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        transition: opacity .2s ;
+        z-index: 1;
+        @include f-c-c;
+        width: 32px;
+        height: 70px;
+        background: rgba(0, 0, 0, 0.6);
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        &.right{
+            right:0;
+        }
+
+        &.active{
             opacity: 1;
         }
     }
