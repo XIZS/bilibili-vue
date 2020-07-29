@@ -160,10 +160,39 @@
 .por{
     position: relative;
 }
-.pa{
+.poa{
     position: absolute;
 }
 
+.t0{
+    top:0;
+}
+.l0{
+    left:0;
+}
+.r0{
+    right:0;
+}
+.b0{
+    bottom:0;
+}
+.tl0{
+    top:0;
+    left:0;
+}
+.tr0{
+    top:0;
+    right:0;
+}
+.bl0{
+    bottom:0;
+    left:0;
+}
+
+.br0{
+    bottom:0;
+    right:0;
+}
 
 @mixin dynamic-width($default, $max, $mid, $min) {
     width: $default;

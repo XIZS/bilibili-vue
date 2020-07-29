@@ -112,7 +112,7 @@ export default {
     padding: 10px 24px;
     color: white;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-    width: 100vw;
+    width: 100%;
     height: 56px;
     box-sizing: border-box;
     position: relative;

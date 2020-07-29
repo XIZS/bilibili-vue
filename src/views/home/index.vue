@@ -6,7 +6,8 @@
             <home-nav></home-nav>
         </div>
         <div class="home-shows">
-            <home-show1></home-show1>
+            <home-show1 style="margin-bottom:40px;"></home-show1>
+            <home-show2 style="margin-bottom:40px;"></home-show2>
         </div>
 
         <div class="response-width"></div>
@@ -19,11 +20,13 @@
 import HomeHead from "./home-head.vue";
 import HomeNav from "../../components/home/home-nav.vue";
 import HomeShow1 from "../../components/home/home-show1.vue";
+import HomeShow2 from "../../components/home/home-show2.vue"
 export default {
     components: {
         HomeHead,
         HomeNav,
         HomeShow1,
+        HomeShow2
     },
 };
 </script>
