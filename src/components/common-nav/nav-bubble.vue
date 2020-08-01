@@ -26,7 +26,7 @@ export default {
         this.parentWidthOffset = this.$el.parentElement.clientWidth / 2;
 
         let closeLock = null;
-        this.$el.parentElement.addEventListener("mouseover", () => {
+        this.$el.parentElement.addEventListener("mouseenter", () => {
             if (closeLock != null) {
                 clearTimeout(closeLock);
             }
@@ -35,7 +35,7 @@ export default {
             this.currentShowBubble = true;
         });
 
-        this.$el.parentElement.addEventListener("mouseout", () => {
+        this.$el.parentElement.addEventListener("mouseleave", () => {
             closeLock = setTimeout(() => {
                 this.currentShowBubble = false;
             }, 100);

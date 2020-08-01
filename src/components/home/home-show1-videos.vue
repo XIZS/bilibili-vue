@@ -197,7 +197,6 @@ export default {
         }
         &:hover .later-play {
             transition-delay: 0.2s;
-
             opacity: 1;
         }
     }
