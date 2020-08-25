@@ -56,6 +56,7 @@
             ></i>
             <span class="fs-12">{{video.up.name}}</span>
         </div>
+        
     </div>
 </template>
 
@@ -70,7 +71,7 @@ let animationController = (() => {
 
     return {
         start(cb) {
-            key = setInterval(cb, 1000);
+            key = setInterval(cb, 1500);
         },
         stop() {
             clearInterval(key);
