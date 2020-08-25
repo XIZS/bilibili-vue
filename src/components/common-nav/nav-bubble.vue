@@ -99,7 +99,7 @@ export default {
 }
 .bubble-enter,
 .bubble-leave-to {
-    top: 98% !important;
+    top: 115% !important;
     opacity: 0;
 }
 

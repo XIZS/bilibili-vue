@@ -146,7 +146,7 @@ export default {
 
         .search {
             display: flex;
-            border-radius: 3px;
+            border-radius: 2px;
             height: 100%;
             overflow: hidden;
 

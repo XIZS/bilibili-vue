@@ -2,7 +2,7 @@
     <div class="home-nav w100p">
         <div class="body response-width f-ac" style="margin:0 auto;">
             <home-nav-left></home-nav-left>
-          
+
             <span class="l"></span>
             <div class="middle f-col">
                 <div class="it" v-for="(item,index) in channels" :key="index">
@@ -11,25 +11,40 @@
                             <span class="name">{{item.name}}</span>
                             <span class="count f-c-c">{{item.newAdd}}</span>
                         </div>
-                            <bili-bubble
-                                v-if="item.childrenChannel&&item.childrenChannel.length>0"
-                                :location="index%2!==0?'bottom':'top'"
-                                :style="{transform:`translate(-13px,${index%2!==0?'12px':'-12px'})`,zIndex:2}"
-                            >
-                                <div class="chi-cha">
-                                    <div
-                                        class="cc"
-                                        v-for="(it,ind) in item.childrenChannel"
-                                        :key="ind"
-                                    >{{it.name}}</div>
-                                </div>
-                            </bili-bubble>
+                        <bili-bubble
+                            v-if="item.childrenChannel&&item.childrenChannel.length>0"
+                            :location="index%2!==0?'bottom':'top'"
+                            :style="{transform:`translate(-10px,${index%2!==0?'12px':'-12px'})`,zIndex:2}"
+                        >
+                            <div class="chi-cha">
+                                <div
+                                    class="cc"
+                                    v-for="(it,ind) in item.childrenChannel"
+                                    :key="ind"
+                                >{{it.name}}</div>
+                            </div>
+                        </bili-bubble>
                     </div>
                 </div>
                 <div class="more it">
-                    <div>
-                        <span class="name">更多</span>
-                        <span class="count"></span>
+                    <div class=" f-ac h100p">
+                         <div class="f-ab">
+                            <span class="name">更多</span>
+                            <span class="count f-c-c"> </span>
+
+                        </div>
+                        <bili-bubble
+                            location="bottom"
+                            style="transform:translate(-10px,12px);z-index:2"
+                        >
+                            <div class="chi-cha">
+                                <div class="cc">搞笑</div>
+                                <div class="cc">动物园</div>
+                                <div class="cc">美食圈</div>
+                                <div class="cc">单机游戏</div>
+                                <div class="cc">VLOG</div>
+                            </div>
+                        </bili-bubble>
                     </div>
                 </div>
             </div>
@@ -64,10 +79,10 @@
     </div>
 </template>
 <script>
-import HomeNavLeft from '../../components/home/home-nav-left.vue'
+import HomeNavLeft from "../../components/home/home-nav-left.vue";
 import channels from "../../assets/resource/channels.js";
 export default {
-    components:{
+    components: {
         HomeNavLeft,
     },
     mounted() {},
@@ -122,7 +137,7 @@ export default {
             margin: 0 8px;
         }
     }
- 
+
     .middle {
         height: 68px;
         flex: 1;
@@ -158,7 +173,7 @@ export default {
                 height: max-content; //这个是重点要添加的
                 .cc {
                     cursor: pointer;
-                    min-width: 32px;
+                    min-width: 60px;
                     writing-mode: horizontal-tb;
                     box-sizing: border-box;
                     padding: 10px 13px;

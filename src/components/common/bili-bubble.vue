@@ -33,6 +33,7 @@ export default {
             type: String,
             default: "start", //start center end
         },
+      
     },
     data() {
         return {
@@ -90,6 +91,9 @@ export default {
                 }
             }, 0);
         },
+        target2(){
+            console.log('target2',this.target2);
+        }
         // target(newTarget,oldTarget){
         //     //check odlTarget is null,if not null remove oldTarget mouseover and mouseout event
         //     if(oldTarget!=null){

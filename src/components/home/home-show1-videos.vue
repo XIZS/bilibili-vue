@@ -40,14 +40,14 @@ export default {
     data() {
         return {
             current: 0,
-            control: true,
+            control: false,
             videos: [],
         };
     },
     methods:{
         prev(){
             if(this.current===0){
-                this.current= this.videos.length/10;
+                this.current= (this.videos.length/10)-1;
                 return;
             }
             this.current--;
